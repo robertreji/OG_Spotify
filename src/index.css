@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+/* Optional: class to hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Base scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; /* for horizontal scroll */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff49;
+    opacity: 0.1; /* 10% transparency, valid syntax */
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #08ce2cb4;
+    border-radius: 5px;
+}
+
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #0ec417ba;
+}
