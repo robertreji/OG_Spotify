@@ -1,5 +1,5 @@
-import NavBar from "./Components/NavBar.jsx"
-import Display from './Components/Display.jsx'
+import NavBar from "./Components/NavBar/NavBar.jsx"
+import Display from './Components/Display/Display.jsx'
 
 const App = () => {
   return (
