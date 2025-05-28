@@ -1,7 +1,7 @@
 import Artists from "../Cards/Artists";
 import SongItem from "../Cards/SongItem";
 import { trendingSongList } from "../../YoutubeSongsApi";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { artists } from "../../YoutubeSongsApi";
 export default function Home(){
     
