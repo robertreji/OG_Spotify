@@ -11,7 +11,7 @@ export const trendingSongList=async ()=>{
            params: {
             part: 'snippet,statistics',
             chart: 'mostPopular',
-            regionCode: 'NG',
+            regionCode: 'GB',
             videoCategoryId: '10',
             maxResults: 47,
             key: API_KEY

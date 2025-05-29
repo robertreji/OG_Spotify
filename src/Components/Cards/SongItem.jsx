@@ -3,9 +3,11 @@ import { PlayerContext } from "../../Context/PlayerContext"
 
 export default function SongItem({img,name,desc,id})
 {
-    const {onClickSong}=useContext(PlayerContext)
+    const {onClickSong,setisPlay}=useContext(PlayerContext)
     return(
-        <div onClick={()=>onClickSong(id)} className="cursor-pointer hover:bg-[#ffffff14] 
+        <div onClick={()=>{
+            setisPlay(true)
+            onClickSong(id)}} className="cursor-pointer hover:bg-[#ffffff14] 
                             ml-3 hover:scale-[101%] delay-100 
                             p-4 flex flex-col gap-2  rounded-2xl
                              min-w-[200px] min-h-[260px] max-w-[250px]

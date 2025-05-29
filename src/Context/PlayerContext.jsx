@@ -6,6 +6,8 @@ export const PlayerContext=createContext();
 export const PlayerContextProvide=({children})=>{
     const [isPlaySong,setisPlaySong]=useState(false)
     const [SongId,setSongId]=useState()
+    const [isPlay,setisPlay]=useState(false)
+
 
     function onClickSong(id)
     {
@@ -16,7 +18,8 @@ export const PlayerContextProvide=({children})=>{
 
     const ContextValue={
         isPlaySong,onClickSong,setisPlaySong,
-        SongId
+        SongId,
+        isPlay,setisPlay
     }
    return(
     <PlayerContext.Provider value={ContextValue}>
