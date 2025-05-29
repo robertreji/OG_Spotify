@@ -28,6 +28,20 @@ export const trendingSongList=async ()=>{
     return list
 
 }
+export const playListofArtist= async(name)=>
+{
+  const res = await axios.get('https://www.googleapis.com/youtube/v3/search', {
+  params: {
+    part: 'snippet',
+    q: `${name} songs`,     
+    type: 'video',
+    videoCategoryId: '10',       
+    maxResults: 25,
+    key: API_KEY,
+  }
+});
+ return res.data.items
+}
 
 export const getSongById=async (id)=>{
   try {
@@ -95,4 +109,5 @@ export const artists = [
     imgurl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMOjDGbZ4j7pICSq0_8Ve-gRmi515zKp-1eA&s"
   }
 ];
+
 

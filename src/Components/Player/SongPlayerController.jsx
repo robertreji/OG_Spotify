@@ -5,12 +5,39 @@ export default function SongPlayerController({name,id})
 {
    const {isPlay,setisPlay}=useContext(PlayerContext)
  const [isReady,setIsReady]=useState(false)
+ const [duration,setDuration]=useState()
+ const [currentTime,setCurrentTime]=useState()
  const YiutubePlayerRef=useRef()
+ const loaderRef=useRef()
 
+ useEffect(() => {
+  if (!isReady) return;  
+
+  if(isPlay)return
+  const interval = setInterval(() => {
+    setCurrentTime(prev => {
+      const newTime = prev + 1;
+      if (loaderRef.current && duration > 0) {
+        loaderRef.current.style.width = `${(newTime / duration) * 100}%`;
+      }
+      if(newTime>=duration){
+         setisPlay(false)
+         return newTime
+      }
+      return newTime;
+    });
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, [isPlay, duration, isReady]);
+
+ 
   function isPlayerReady(event)
   {
    YiutubePlayerRef.current=event.target;
    event.target.setVolume(100);
+   setDuration(YiutubePlayerRef.current.getDuration())
+   setCurrentTime(YiutubePlayerRef.current.getCurrentTime())
   }
   function playSong()
   {
@@ -28,6 +55,12 @@ export default function SongPlayerController({name,id})
          }
          YoutubePlay()
    })
+   function formatTime(seconds) {
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
+  return `${min}:${sec}`;
+}
+
    return(
     <div className=" flex flex-col items-center justify-center h-full">
       {isReady
@@ -63,11 +96,13 @@ export default function SongPlayerController({name,id})
                      <img className="w-12" src="https://cdn-icons-png.flaticon.com/128/7191/7191571.png" alt="" />
                </div>
                <div className="w-full flex justify-center items-center">
-                  <p className="text-lg">0:00</p>
-                  <div className="w-[60%] ml-5  mr-5   rounded-2xl h-2 bg-white">
-                     <div className="bg-green-500 rounded-2xl h-full w-[50%]" />
+                  <p className="text-lg">{formatTime(currentTime)}</p>
+                  <div className="w-[60%] ml-5   mr-5  flex items-center rounded-4xl h-2 bg-white">
+                     <div ref={loaderRef} className="bg-green-500 rounded-4xl relative h-full w-0" >
+                        <div className="h-[15px] absolute -right-2 -top-[50%] rounded-full w-[15px] bg-purple-600"></div>
+                     </div>
                   </div>
-                  <p className="text-lg">0:00</p>
+                  <p className="text-lg">{!isReady?"0:00":formatTime(duration)}</p>
                </div>
             </div>
     </div>

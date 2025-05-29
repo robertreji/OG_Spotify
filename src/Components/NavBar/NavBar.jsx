@@ -1,7 +1,9 @@
 import React from 'react'
 import NavSearch from './NavSearch'
+import { useNavigate } from 'react-router-dom'
 
 export default function  NavBar() {
+  const navigate=useNavigate()
   return (
     <div className='flex h-[7%]  justify-between'>
 
@@ -11,7 +13,7 @@ export default function  NavBar() {
                 <img className='w-10 cursor-pointer' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="" />
             </div>
 
-            <div className='bg-[#ffffff26] rounded-full w-[50px] h-[50px] ml-3 flex justify-center '>
+            <div onClick={()=>navigate("/")} className='bg-[#ffffff26] rounded-full w-[50px] h-[50px] ml-3 flex justify-center '>
                 <img className='w-9 m-auto cursor-pointer' src="https://cdn-icons-png.flaticon.com/128/14035/14035684.png" alt="" />
             </div>
 

@@ -8,22 +8,33 @@
 /* Base scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
-    height: 10px; /* for horizontal scroll */
+    height: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: #ffffff49;
-    opacity: 0.1; /* 10% transparency, valid syntax */
+    opacity: 0.1; 
 }
 
-/* Thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
     background: #08ce2cb4;
     border-radius: 5px;
 }
 
-/* Thumb on hover */
+
 ::-webkit-scrollbar-thumb:hover {
     background: #0ec417ba;
+}
+.scale-box {
+  transform: scale(0);
+  animation: scaleUp 1s forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
