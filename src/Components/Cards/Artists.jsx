@@ -15,7 +15,7 @@ export default function Artists({img,name})
     }
     return(
         <div onClick={()=>{
-        navigate("/Artists")
+        navigate(`/Artists/${name}`)
         getArtistPlaylist(name)
         }
         } className="cursor-pointer hover:bg-[#ffffff14] ml-3 hover:scale-[101%] delay-100 p-4 flex flex-col gap-2  rounded-2xl min-w-[200px] min-h-[260px] max-w-[250px] max-h-[250px]">

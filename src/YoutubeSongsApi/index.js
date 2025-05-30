@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY="AIzaSyBWaPrsCjsRBfktjMb3hBbjvp6JrN94weQ"
+const API_KEY="AIzaSyBuLZgzr6vrugABEuHSatkfhb-lM0vAvs0"
 
 export const trendingSongList=async ()=>{
 
@@ -28,7 +28,7 @@ export const trendingSongList=async ()=>{
     return list
 
 }
-export const playListofArtist= async(name)=>
+export const playListofArtist= async (name)=>
 {
   const res = await axios.get('https://www.googleapis.com/youtube/v3/search', {
   params: {
@@ -47,13 +47,13 @@ export const getSongById=async (id)=>{
   try {
   const res = await axios.get(`https://www.googleapis.com/youtube/v3/videos`, {
     params: {
-      part: 'snippet,statistics',
+      part: 'snippet,statistics,contentDetails',
       id: `${id}`,
       key: API_KEY
     }
   });
 
-  const SongUrl = res.data.items[0].snippet;
+  const SongUrl = res.data.items[0];
   return SongUrl;
 } catch (error) {
   console.error("Error fetching video:", error);

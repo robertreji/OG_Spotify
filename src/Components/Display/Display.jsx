@@ -9,7 +9,7 @@ export default function Display()
             <SideBar/>
             <Routes>
                    <Route path="/" element={<Home/>}/> 
-                   <Route path="/Artists" element={<ArtistPlaylist/>}/>
+                   <Route path="/Artists/:artist" element={<ArtistPlaylist/>}/>
             </Routes>
             
         </div>
