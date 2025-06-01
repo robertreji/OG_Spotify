@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY="AIzaSyBuLZgzr6vrugABEuHSatkfhb-lM0vAvs0"
+const API_KEY="AIzaSyC8sLkfHl2Ma63ZUWIla9eb-DWlhdEbyC4"
 
 export const trendingSongList=async ()=>{
 
@@ -32,6 +32,21 @@ export const playListofArtist= async (name)=>
 {
   const res = await axios.get('https://www.googleapis.com/youtube/v3/search', {
   params: {
+    part: 'snippet',
+    q: `${name} songs`,     
+    type: 'video',
+    videoCategoryId: '10',       
+    maxResults: 25,
+    key: API_KEY,
+  }
+});
+ return res.data.items
+}
+export const searchSongs= async (name)=>
+{
+  const res = await axios.get('https://www.googleapis.com/youtube/v3/search', {
+  params: {
+    order: 'relevance',
     part: 'snippet',
     q: `${name} songs`,     
     type: 'video',

@@ -1,4 +1,4 @@
-import {createContext,useState } from "react";
+import {createContext,useRef,useState } from "react";
 
 
 export const PlayerContext=createContext();
@@ -8,8 +8,9 @@ export const PlayerContextProvide=({children})=>{
     const [SongId,setSongId]=useState()
     const [isPlay,setisPlay]=useState(false)
     const [ArtistPlaylist,setArtistPlaylist]=useState()
-    
-var ArtistName;
+    const [searchData,setSearchData]=useState()
+    const searchref=useRef()
+    var ArtistName;
     function onClickSong(id)
     {
         setisPlaySong(true)
@@ -22,7 +23,8 @@ var ArtistName;
         SongId,
         isPlay,setisPlay,
         ArtistPlaylist,setArtistPlaylist,
-        ArtistName
+        ArtistName,
+        searchData,searchref,setSearchData
        
     }
    return(

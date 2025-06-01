@@ -62,7 +62,7 @@ export default function SongPlayerController({name,id})
 }
 
    return(
-    <div className=" flex flex-col items-center justify-center h-full">
+    <div className=" flex flex-col items-center justify-center h-1/2 lg:h-full">
       {isReady
       ? <Youtube className=" hidden" 
             videoId={id}
@@ -76,10 +76,10 @@ export default function SongPlayerController({name,id})
                }
             }}/>:null
             }
-            <div className="h-1/4 flex justify-center items-center w-full">
-                  <b className="font-bold text-2xl">{name}</b>
+            <div className="h-1/6 flex justify-center items-center w-full">
+                  <b className="font-semibold text-xl">{name}</b>
             </div>
-            <div className="h-3/4 flex flex-col items-center justify-center w-[100%]">
+            <div className="lg:h-3/4 flex flex-col items-center justify-center w-[100%]">
                <div className="w-[100%] gap-6 flex justify-center items-center h-[100px]">
                      
                      <img className="w-10" src="https://cdn-icons-png.flaticon.com/128/15732/15732441.png" alt="" />
@@ -98,7 +98,7 @@ export default function SongPlayerController({name,id})
                <div className="w-full flex justify-center items-center">
                   <p className="text-lg">{formatTime(currentTime)}</p>
                   <div className="w-[60%] ml-5   mr-5  flex items-center rounded-4xl h-2 bg-white">
-                     <div ref={loaderRef} className="bg-green-500 rounded-4xl relative h-full w-0" >
+                     <div ref={loaderRef} className=" rounded-4xl relative h-full w-0" >
                         <div className="h-[15px] absolute -right-2 -top-[50%] rounded-full w-[15px] bg-purple-600"></div>
                      </div>
                   </div>

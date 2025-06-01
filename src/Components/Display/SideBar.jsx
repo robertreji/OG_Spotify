@@ -2,7 +2,7 @@
 export default function SideBar()
 {
     return(
-        <div className="h-[95%] relative flex flex-col gap-10 p-2 w-[25%] pt-4 rounded-lg ml-3 bg-[#121212]">
+        <div className="h-[95%] hidden  relative lg:flex flex-col gap-10 p-2 w-[25%] pt-4 rounded-lg ml-3 bg-[#121212]">
             <div className="flex items-center  justify-between text-white font-semibold">
                 <p className="ml-6 text-2xl ">Your library </p>
                 <img className="rounded-full w-8 mr-6 cursor-pointer" src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png" alt="" />
